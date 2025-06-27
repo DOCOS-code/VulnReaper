@@ -1,0 +1,12 @@
+{
+  "target": "https://site.com/user?id=1",
+  "scan_type": "IDOR",
+  "findings": [
+    {
+      "type": "Parameter Tampering",
+      "payload": "id=2",
+      "evidence": "Access to another user's profile"
+    }
+  ],
+  "timestamp": "2025-06-27T18:33Z"
+}
