@@ -1,0 +1,25 @@
+# CLI & Core Scanning
+requests
+argparse
+urllib3
+
+# TUI Interface
+rich
+textual
+
+# React GUI Backend API
+flask
+flask-cors
+
+# Passive Recon Tools
+beautifulsoup4
+tldextract
+
+# JavaScript scraping (optional for JS enum)
+jsbeautifier
+
+# Burp Integration (Burp Extender via Jython not listed here)
+# Manual install: Jython, Burp Suite Pro/Community
+
+# Misc
+colorama
