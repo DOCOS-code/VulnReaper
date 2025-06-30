@@ -1,9 +1,6 @@
 from rich.console import Console
-from rich.table import Table
 from rich.prompt import Prompt
 import subprocess
-import os
-import json
 
 console = Console()
 
@@ -14,7 +11,6 @@ def run_idor():
     keyword = Prompt.ask("Keyword to detect (optional)", default="")
     token = Prompt.ask("Bearer Token (optional)", default="")
     cookie = Prompt.ask("Session Cookie (optional)", default="")
-
     cmd = [
         "python", "vulnreaper.py",
         "--mode", "idor",
@@ -25,7 +21,6 @@ def run_idor():
     if keyword: cmd += ["--keyword", keyword]
     if token: cmd += ["--token", token]
     if cookie: cmd += ["--cookie", cookie]
-
     console.rule("[bold red]IDOR Scan Started")
     subprocess.call(cmd)
     console.rule("[green]IDOR Scan Complete")
@@ -33,14 +28,12 @@ def run_idor():
 def run_sqli():
     url = Prompt.ask("Target URL (e.g. https://site.com/product?item=1)")
     param = Prompt.ask("Parameter to test", default="item")
-
     cmd = [
         "python", "vulnreaper.py",
         "--mode", "sqli",
         "--url", url,
         "--param", param
     ]
-
     console.rule("[bold red]SQLi Scan Started")
     subprocess.call(cmd)
     console.rule("[green]SQLi Scan Complete")
@@ -53,9 +46,7 @@ def main_menu():
         console.print(" [3] Load Previous Report")
         console.print(" [4] Settings (Coming Soon)")
         console.print(" [0] Exit")
-
         choice = Prompt.ask("Choose an option", choices=["1", "2", "3", "4", "0"])
-
         if choice == "1":
             run_idor()
         elif choice == "2":
